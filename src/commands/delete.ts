@@ -9,7 +9,7 @@ import type { CLIOptions } from "../types.js"
  * @param {CLIOptions} options - The options to be used in the command
  */
 export const deleteCommand = async (options: Pick<CLIOptions, "sid">) => {
-    if (!isAlphabetNumeric(options.sid) || !options) {
+    if (!isAlphabetNumeric(options.sid)) {
         error("Invalid short ID. Please verify the structure of the link and try again.")
         return
     }

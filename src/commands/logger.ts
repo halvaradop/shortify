@@ -84,10 +84,7 @@ export const createLogger = (): Logger => {
     try {
         const { logger } = readConfig()
         return createCustomLogger(logger)
-    } catch (error) {
-        if (error instanceof Error) {
-            defaultLogger.error("Error loading logger configuration:", error.message)
-        }
+    } catch {
         return defaultLogger
     }
 }

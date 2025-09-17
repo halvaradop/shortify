@@ -4,18 +4,17 @@
   "description": "A command-line tool that allows you to quickly and efficiently shorten URLs, generating short and easy-to-share links",
   "private": false,
   "type": "module",
-  "main": "dist/index.js",
-  "bin": {
-    "shortify": "dist/index.js"
-  },
   "scripts": {
-    "dev": "tsc -w",
     "build": "tsc",
-    "link-cli": "pnpm unlink @halvaradop/shortify-cli && chmod +x dist/index.js && pnpm link -g",
+    "cli": "node dist/index.js",
+    "dev": "tsc -w",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "test": "vitest --run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "type-check": "tsc --noEmit"
   },
   "repository": {
     "type": "git",
@@ -38,35 +37,28 @@
   },
   "homepage": "https://github.com/halvaradop/shortify-cli#readme",
   "dependencies": {
-    "commander": "^12.1.0"
+    "commander": "^12.1.0",
+    "dotenv": "^16.4.7"
   },
   "devDependencies": {
+    "@halvaradop/eslint-config": "^1.2.0",
+    "@halvaradop/prettier-config": "^1.2.0",
+    "@halvaradop/tsconfig": "^1.1.2",
     "@types/node": "^20.17.9",
-    "dotenv": "^16.4.7",
+    "eslint": "^9.35.0",
     "prettier": "^3.4.2",
     "typescript": "^5.7.2",
     "vitest": "^2.1.8"
+  },
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "bin": {
+    "shortify": "dist/index.js"
   },
   "files": [
     "dist"
   ],
   "packageManager": "pnpm@9.12.0",
-  "prettier": {
-    "tabWidth": 4,
-    "semi": false,
-    "printWidth": 130,
-    "overrides": [
-      {
-        "files": [
-          "*.json",
-          "*.md",
-          "*.yml",
-          "*.yaml"
-        ],
-        "options": {
-          "tabWidth": 2
-        }
-      }
-    ]
-  }
+  "prettier": "@halvaradop/prettier-config"
 }
