@@ -90,7 +90,7 @@ program
  * Show help after an error
  */
 program
-    .showHelpAfterError(!error("You can execute (shortify --help) for additional information"))
+    .showHelpAfterError(error("You can execute (shortify --help) for additional information").toString())
     .configureOutput(configureOutput)
 
 /**

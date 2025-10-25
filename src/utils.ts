@@ -9,9 +9,10 @@ import { colors } from "./commands/logger.js"
  * @returns {boolean} whether the URL is valid
  */
 export const isValidURL = (url: string): boolean => {
-    return new RegExp("^(https?:\\/\\/)([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,}(\\:\\d+)?(\\/[-a-zA-Z0-9@:%_\\+.~#?&//=]*)?$", "i").test(
-        url,
-    )
+    return new RegExp(
+        "^(https?:\\/\\/)([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,}(\\:\\d+)?(\\/[-a-zA-Z0-9@:%_\\+.~#?&//=]*)?$",
+        "i",
+    ).test(url)
 }
 
 /**

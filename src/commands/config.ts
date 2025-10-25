@@ -34,7 +34,7 @@ export const readConfig = (): ConfigOptions => {
         return JSON.parse(readFileSync(configPath, "utf-8"))
     } catch (e) {
         error("Error reading config file:", e)
-        return defaultConfig as ConfigOptions
+        return defaultConfig
     }
 }
 
@@ -83,7 +83,7 @@ export const createConfig = async (force: boolean = false) => {
  * @param {ConfigCommandOptions} options - The command line options.
  */
 export const configCommand = async (options: ConfigCommandOptions) => {
-    if (!Object.keys(options).length) {
+    if (Object.keys(options).length === 0) {
         info("Configuration:", JSON.stringify(readConfig(), null, 2))
         return
     }
